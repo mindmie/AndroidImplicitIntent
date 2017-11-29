@@ -38,16 +38,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btn_intent_2:
-                // TODO: ???
+                // TODO: call
+                intent.setAction(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:0869155193"));
+                startActivity(intent);
                 break;
             case R.id.btn_intent_3:
-                // TODO: ???
+                // TODO: Open browser
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https:www.google.co.th"));
+                startActivity(intent);
+
                 break;
             case R.id.btn_intent_4:
-                // TODO: ???
+                // TODO: Open camera
+                intent.setAction(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
+                startActivity(intent);
                 break;
             case R.id.btn_intent_5:
-                // TODO: ???
+                // TODO: send email
+                intent.setType("text/plain");
+                intent.setData(Uri.parse("mailto:someone_who_waiting_for_love@example.com"));
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Why you still miss him?");
+                intent.putExtra(Intent.EXTRA_TEXT, "Just open your eyes, better guy might be around you");
+                startActivity(Intent.createChooser(intent, "Send email via"));
                 break;
 
         }
